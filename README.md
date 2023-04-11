@@ -18,25 +18,43 @@ First, let’s extract a summary of all the variables in the dataset.
 
 Then, we will proceed creating a histogram reflecting the frequency that each single event has happened:
 
+![](images/Imagem2.png)
+
 It is possible to see that our histogram won’t converge to a normal distribution. So, we will resort to Regression Models for Count Data, starting with the Poisson model, and then modelling the Negative Binomial, Zero-Inflated Poisson, and Zero-Inflated Negative Binomial. We will briefly compare each model to acknowledge which one is the most fit for our observations.
 
 On a first analysis, we compared the mean and variance for the ‘corruption’ dataset:
 
+![](images/Imagem3.png)
+
 We have also made a plot comparing what was observed in a real-world situation. 
+
+![](images/Imagem4.png)
 
 As the mean is statistically different from the variance, we could start modelling straight to the negative binomial regression. However, for educational purposes, we will start with the Poisson regression.
 Our first model came out as the following:
 
+![](images/Imagem5.png)
+
 All the variables are statistically relevant to the model. After generating the model, we will test for overdispersion (Cameron & Trivedi, 1990).
+
+![](images/Imagem6.png)
 
 This indicates that we have overdispersion of data, and we should proceed to modelling with the Poisson-Gama regression. Comparing both models, we can see that the Negative Binomial model is much more fit to the real-world data, increasing the LL from 2071.79 to -567.40.
 
+![](images/Imagem7.png)
+
 As our histogram indicates a zero-inflated model, we will proceed and build Zero-Inflated Poisson and Zero-Inflated Negative Binomial models.
+
+![](images/Imagem8.png)
 
 Between all the models, our best fit was the Zero-Inflated Binomial Negative, with a Log Likelihood of -557.264, close to the Binomial Negative.
 Performing a likelihood ratio test, we can assure that the ZINB is statistically different from the Negative Binomial.
 Now, let's compare the model with the real data.
 
+![](images/Imagem9.png)
+
 Our model is decent at capturing the zeros from the real-data, and can also capture the tail of the histogram.
 Making a plot between violations and number of staff members, we can compare all the models against each other. 
+
+![](images/Imagem10.png)
 
