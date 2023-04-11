@@ -14,6 +14,8 @@ Overall, this project aims to identify the relationship between diplomatic immun
 ## Development
 First, let’s extract a summary of all the variables in the dataset.
 
+![](images/Imagem1.png)
+
 Then, we will proceed creating a histogram reflecting the frequency that each single event has happened:
 
 It is possible to see that our histogram won’t converge to a normal distribution. So, we will resort to Regression Models for Count Data, starting with the Poisson model, and then modelling the Negative Binomial, Zero-Inflated Poisson, and Zero-Inflated Negative Binomial. We will briefly compare each model to acknowledge which one is the most fit for our observations.
